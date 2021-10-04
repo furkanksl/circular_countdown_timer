@@ -52,6 +52,7 @@ class CustomTimerPainter extends CustomPainter {
 
     if (backgroundColor != null || backgroundGradient != null) {
       final backgroundPaint = Paint();
+      final whiteBgPaint = Paint();
 
       if (backgroundGradient != null) {
         final rect = Rect.fromCircle(
@@ -60,8 +61,19 @@ class CustomTimerPainter extends CustomPainter {
       } else {
         backgroundPaint.color = backgroundColor!;
       }
+      whiteBgPaint.color = Colors.white;
+
       canvas.drawCircle(
-          size.center(Offset.zero), size.width / 2.2, backgroundPaint);
+        size.center(Offset.zero),
+        size.width / 2.0,
+        whiteBgPaint,
+      );
+
+      canvas.drawCircle(
+        size.center(Offset.zero),
+        size.width / 2.2,
+        backgroundPaint,
+      );
     }
   }
 
